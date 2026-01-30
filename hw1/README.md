@@ -103,6 +103,7 @@ public static boolean verifyIntegrity(byte[] message, byte[] expectedDigest,
 ## Part 1B: Finding Collisions
 
 Test collision resistance by trying to find two different messages with the same digest.
+Experiment with sha-256, sha-256 truncated to 8 bits, and sha-256 truncated to 16 bits using flags 1 2 and 3
 
 **Collision results**: Create a table:
 
