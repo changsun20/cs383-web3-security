@@ -14,12 +14,16 @@ public class Utils {
     }
 
 
-    /** Truncated SHA-256 hash - returns only the first 'bits' bits as a long */
-    public static long hashTruncated(byte[] input, int bits) throws NoSuchAlgorithmException {
+    /** Truncated SHA-256 hash - returns only the first 'bits' bits */
+    public static byte[] hashTruncated(byte[] input, int bits) throws NoSuchAlgorithmException {
         byte[] fullHash = sha256(input);
         long hash = ByteBuffer.wrap(fullHash).getLong();
-        long mask = (1L << bits) - 1;
-        return hash & mask;
+
+        int numBytes = (bits+7)/8;
+        byte[] truncated = new byte[numBytes];
+        System.arraycopy(fullHash, 0, truncated, 0, numBytes); 
+
+        return truncated; 
     }
      
     /** Concatenate byte arrays in order. */
@@ -36,6 +40,7 @@ public class Utils {
     }
 
 
+    /** Generate a random 32 byte salt **/
     public static byte[] genSalt() {
         byte[] r = new byte[32];
         RNG.nextBytes(r);
