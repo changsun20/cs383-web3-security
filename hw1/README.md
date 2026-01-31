@@ -268,6 +268,3 @@ Test how long it takes to solve puzzles of different difficulties.
 
 ---
 
-# Part 4: Digital Signatures
-
-
