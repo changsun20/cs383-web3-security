@@ -1,4 +1,5 @@
 import java.security.NoSuchAlgorithmException;
+import java.util.Arrays;
 
 public class Part1 {
     // -----------------------------
@@ -36,6 +37,6 @@ public class Part1 {
      */
     public static boolean verifyIntegrity(byte[] message, byte[] expectedDigest, 
                                           int hashFunction) throws NoSuchAlgorithmException {
-        return expectedDigest == computeDigest(message, hashFunction);
+        return Arrays.equals(expectedDigest, computeDigest(message, hashFunction));
     }
 }

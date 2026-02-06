@@ -9,13 +9,13 @@ public class Part2 {
     /** TODO: return (c, r) where r is random 32 bytes and c = SHA256(r || message). */
     public static Commitment commit(byte[] message, int hashFunction) throws NoSuchAlgorithmException {
         // TODO 
-        //throw new UnsupportedOperationException("TODO");
+        throw new UnsupportedOperationException("TODO");
     }
 
     /** TODO: return true iff c.c equals SHA256(c.r || message). */
     public static boolean verify(Commitment c, byte[] message, int hashFunction) throws NoSuchAlgorithmException {
         // TODO
-        //throw new UnsupportedOperationException("TODO");
+        throw new UnsupportedOperationException("TODO");
     }
 
 }
