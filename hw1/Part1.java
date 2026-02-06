@@ -1,6 +1,4 @@
 import java.security.NoSuchAlgorithmException;
-import java.util.Arrays;
-import java.util.HashMap;
 
 public class Part1 {
     // -----------------------------
@@ -19,11 +17,15 @@ public class Part1 {
      * @return the message digest as a byte array
      */
     public static byte[] computeDigest(byte[] message, int hashFunction)  throws NoSuchAlgorithmException {
-        
-        // TODO  
-        throw new UnsupportedOperationException("TODO");
+        byte[] digest = switch (hashFunction) {
+        case 1 -> Utils.sha256(message);
+        case 2 -> Utils.hashTruncated(message, 8);
+        case 3 -> Utils.hashTruncated(message, 16);
+        default -> message;
+        };
+        return digest;
     }
-    
+
     /**
      * Verify that a message matches an expected digest.
      * 
@@ -34,9 +36,6 @@ public class Part1 {
      */
     public static boolean verifyIntegrity(byte[] message, byte[] expectedDigest, 
                                           int hashFunction) throws NoSuchAlgorithmException {
-
-        // TODO
-        throw new UnsupportedOperationException("TODO");
+        return expectedDigest == computeDigest(message, hashFunction);
     }
-    
 }
